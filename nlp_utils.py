@@ -33,22 +33,22 @@ stopset = frozenset(stopwords.words('english'))
 
 # Convert an object to its unicode representation (if possible)
 def to_unicode(object):
-	if isinstance(object, unicode):
+	if isinstance(object, str):
 		return object
-	elif isinstance(object, bytes):
-		return object.decode("utf8")
 	else:
-		print str(object)
-		if PY3:
-			if hasattr(instance, "__str__"):
-				return unicode(instance)
-			elif hasattr(instance, "__bytes__"):
-				return bytes(instance).decode("utf8")
-		else:
-			if hasattr(instance, "__unicode__"):
-				return unicode(instance)
-			elif hasattr(instance, "__str__"):
-				return bytes(instance).decode("utf8")
+		return object.decode("utf8")
+	# else:
+	# 	print(str(object))
+	# 	if PY3:
+	# 		if hasattr(instance, "__str__"):
+	# 			return unicode(instance)
+	# 		elif hasattr(instance, "__bytes__"):
+	# 			return bytes(instance).decode("utf8")
+	# 	else:
+	# 		if hasattr(instance, "__unicode__"):
+	# 			return unicode(instance)
+	# 		elif hasattr(instance, "__str__"):
+	# 			return bytes(instance).decode("utf8")
 
 # normalize and stem the word
 def stem_word(word):

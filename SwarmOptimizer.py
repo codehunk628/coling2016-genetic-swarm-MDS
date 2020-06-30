@@ -46,7 +46,7 @@ class SwarmOptimizer(object):
 
 	def _generate_random_foods(self, n):
 		foods = []
-		for i in xrange(n):
+		for i in range(n):
 			foods.append(self._create_random_food_location())
 		return foods
 
@@ -78,7 +78,7 @@ class SwarmOptimizer(object):
 
 	def initial_foods(self):
 		initial_foods = self._generate_random_foods(self._number_locations)
-		print "initial number of foods :", len(initial_foods)
+		print ("initial number of foods :", len(initial_foods))
 		return initial_foods
 
 	def _is_better(self, score_a, score_b):
@@ -101,7 +101,7 @@ class SwarmOptimizer(object):
 		epoch = 0
 		while True:
 			epoch += 1
-			print "epoch: ", epoch, " -- best location: ", best_location
+			print( "epoch: ", epoch, " -- best location: ", best_location)
 
 			# Employed Bees Phase
 			for i, location in enumerate(foods_locations):

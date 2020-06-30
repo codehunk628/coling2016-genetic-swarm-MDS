@@ -54,11 +54,11 @@ if __name__ == '__main__':
 	length_max = 10
 	epoch = 20
 	population_size = 10
-	print "Genetic Algorithm example:"
-	print JS_Gen(docs, length_max, epoch, population_size)
+	print( "Genetic Algorithm example:")
+	print (JS_Gen(docs, length_max, epoch, population_size))
 
-	print "\n==================\n"
+	print ("\n==================\n")
 	mfe = 400
 	number_locations = population_size
-	print "Swarm Intelligence example:"
-	print JS_Swarm(docs, length_max, mfe, number_locations)
+	print ("Swarm Intelligence example:")
+	print (JS_Swarm(docs, length_max, mfe, number_locations))

@@ -43,7 +43,7 @@ class GeneticOptimizer(object):
 
 	def _generate_random_population(self, n):
 		population = []
-		for i in xrange(n):
+		for i in range(n):
 			population.append(self._create_random_individual())
 		return population
 
@@ -135,7 +135,7 @@ class GeneticOptimizer(object):
 		parents = []
 		number_families = int(reproduction_rate * population_size)
 	
-		for i in xrange(number_families):
+		for i in range(number_families):
 			parents.append(random.sample(population_winners, 2))
 
 		children = []
@@ -147,15 +147,13 @@ class GeneticOptimizer(object):
 
 			scored_sentences = zip(self._sentences, random_scores)
 			sorted_sentences = sorted(scored_sentences, key=lambda tup: tup[1], reverse=True)
-		 	child = greedy_optimizer(sorted_sentences, self._max_length)
-
-		 	children.append(child)
-
+			child = greedy_optimizer(sorted_sentences, self._max_length)
+			children.append(child)
 		return children
 
 	def initial_population(self):
 		initial_population = self._generate_random_population(self._population_size)
-		print "initial population len:", len(initial_population)
+		print ("initial population len:", len(initial_population))
 		return initial_population
 
 	def _is_better(self, scored_individual, best_scored_individual):
@@ -169,8 +167,8 @@ class GeneticOptimizer(object):
 			best_individual = (None, -10000)
 		else:
 			best_individual = (None, 10000)
-		for i in xrange(epoch):
-			print "epoch: ", i, " -- best individual: ", best_individual
+		for i in range(epoch):
+			print( "epoch: ", i, " -- best individual: ", best_individual)
 			scored_population = self._score_population(population)
 			sorted_population = sorted(scored_population, key=lambda tup: tup[1], reverse=self._maximization)
 			best_individual_in_generation = sorted_population[0]

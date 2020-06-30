@@ -16,7 +16,7 @@ def get_all_content_words_lemmatized(sentences, N=1):
 		all_words.extend([wordnet_lemmatizer.lemmatize(r) for r in tokenizer.tokenize(s)])
 	if N == 1:
 		content_words = [w for w in all_words if w not in stopset]
-	normalized_content_words = map(normalize_word, content_words)
+	normalized_content_words = list(map(normalize_word, content_words))
 	if N > 1:
 		return [gram for gram in ngrams(normalized_content_words, N)]
 	return normalized_content_words
@@ -37,7 +37,7 @@ def get_all_content_words_stemmed(sentences, N=1):
 	else:
 		content_words = all_words
 
-	normalized_content_words = map(normalize_word, content_words)
+	normalized_content_words = list(map(normalize_word, content_words))
 	if N > 1:
 		return [gram for gram in ngrams(normalized_content_words, N) if is_ngram_content(gram)]
 	return normalized_content_words
@@ -47,7 +47,7 @@ def get_all_content_words(sentences, N=1):
 	for s in sentences:
 		all_words.extend(tokenizer.tokenize(s))
 	content_words = [w for w in all_words if w not in stopset]
-	normalized_content_words = map(normalize_word, content_words)
+	normalized_content_words = list(map(normalize_word, content_words))
 	if N > 1:
 		return [gram for gram in ngrams(normalized_content_words, N)]
 	return normalized_content_words
